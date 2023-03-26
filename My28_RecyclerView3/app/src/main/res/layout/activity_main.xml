@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            <!-- action Bar 를 생성 : 타이틀바, 옵션메뉴바-->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#2436AE"
+                android:elevation="1dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="타이틀"
+                    android:textAppearance="@style/Widget.AppCompat.Toolbar"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp"/>
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <!-- 탭자리 생성 -->
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cardview_light_background"
+                android:elevation="1dp"
+                app:tabGravity="fill"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="#0A1C4A"
+                app:tabTextColor="#47AA9E"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- 프래그먼트 들어갈 자리 확보 -->
+        <FrameLayout
+            android:id="@+id/contain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        </FrameLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</RelativeLayout>
