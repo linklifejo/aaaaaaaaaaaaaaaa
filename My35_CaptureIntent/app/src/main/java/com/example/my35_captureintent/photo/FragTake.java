@@ -176,36 +176,44 @@ public class FragTake extends Fragment {
 
     // 사진을 저장처리 하는 곳
     private void setPic() {
-        // 이미지뷰의 크기 알아오기
-        int targetW = imageView.getWidth();
-        int targetH = imageView.getHeight();
-
-        // 사진의 크기 가져오기
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-
-        int photoW = options.outWidth;
-        int photoH = options.outHeight;
-
-        // 이미지 크기를 맟출비율을 결정
-        int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
-
-        // 이미지뷰의 크기에 맞게 이미지크기를 조절
-        options.inJustDecodeBounds = false;
-        options.inSampleSize = scaleFactor;
-        options.inPurgeable = true;
-
-        // 비트맵 이미지를 생성
-        Bitmap bitmap = BitmapFactory.decodeFile(imgFilePath);
-        // 이미지를 갤러리에 저장하기
-        gelleryAddPic(bitmap);
-        imageView.setImageBitmap(bitmap);
+//        // 이미지뷰의 크기 알아오기
+//        int targetW = imageView.getWidth();
+//        int targetH = imageView.getHeight();
+//
+//        // 사진의 크기 가져오기
+//        BitmapFactory.Options options = new BitmapFactory.Options();
+//        options.inJustDecodeBounds = true;
+//
+//        int photoW = options.outWidth;
+//        int photoH = options.outHeight;
+//
+//        // 이미지 크기를 맟출비율을 결정
+//        int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+//
+//        // 이미지뷰의 크기에 맞게 이미지크기를 조절
+//        options.inJustDecodeBounds = false;
+//        options.inSampleSize = scaleFactor;
+//        options.inPurgeable = true;
+//
+//        // 비트맵 이미지를 생성
+//        Bitmap bitmap = BitmapFactory.decodeFile(imgFilePath);
+//        // 이미지를 갤러리에 저장하기
+//        gelleryAddPic(bitmap);
+//        imageView.setImageBitmap(bitmap);
 
         /*BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 8;
         Bitmap bitmap = BitmapFactory.decodeFile(imgFilePath);
         imageView.setImageBitmap(bitmap);*/
-
+        // 사진의 크기 가져오기
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        // 사진의 해상도를 1/8로 지정
+        options.inSampleSize = 8;
+        // 비트맵 이미지를 생성
+        Bitmap bitmap = BitmapFactory.decodeFile(imgFilePath);
+        // 이미지를 갤러리에 저장
+        gelleryAddPic(bitmap);
+        imageView.setImageBitmap(bitmap);
     }
 
     // 이미지를 갤러리에 저장하기

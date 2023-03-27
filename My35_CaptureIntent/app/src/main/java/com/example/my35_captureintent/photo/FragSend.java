@@ -1,5 +1,6 @@
 package com.example.my35_captureintent.photo;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +39,7 @@ MainActivity activity;
           PhotoDTO d = (PhotoDTO) b.getSerializable("dto");
 
             ImageView i = view.findViewById(R.id.img);
-            i.setImageURI(d.getPhoto());
+           i.setImageURI(d.getPhoto());
 
         return view;
     }
